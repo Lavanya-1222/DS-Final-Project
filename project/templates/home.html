@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h2>Customer Churn Prediction</h2>
+  <form action="/predict" method="post">
+    <div>
+      <label for="customerID">Customer ID</label>
+      <input type="text" name="customerID" id="customerID" placeholder="e.g. 1234" />
+    </div>
+    <div>
+      <label for="gender">Gender</label>
+      <select name="gender" id="gender" required>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+      </select>
+    </div>
+    <div>
+      <label for="SeniorCitizen">Senior Citizen</label>
+      <select name="SeniorCitizen" id="SeniorCitizen" required>
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </div>
+    <div>
+      <label for="Partner">Partner</label>
+      <select name="Partner" id="Partner" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label for="Dependents">Dependents</label>
+      <select name="Dependents" id="Dependents" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label for="tenure">Tenure (months)</label>
+      <input type="number" name="tenure" id="tenure" min="0" required />
+    </div>
+    <div>
+      <label for="PhoneService">Phone Service</label>
+      <select name="PhoneService" id="PhoneService" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label for="MultipleLines">Multiple Lines</label>
+      <select name="MultipleLines" id="MultipleLines" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No phone service">No phone service</option>
+      </select>
+    </div>
+    <div>
+      <label for="InternetService">Internet Service</label>
+      <select name="InternetService" id="InternetService" required>
+        <option value="DSL">DSL</option>
+        <option value="Fiber optic">Fiber optic</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label for="OnlineSecurity">Online Security</label>
+      <select name="OnlineSecurity" id="OnlineSecurity" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="OnlineBackup">Online Backup</label>
+      <select name="OnlineBackup" id="OnlineBackup" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="DeviceProtection">Device Protection</label>
+      <select name="DeviceProtection" id="DeviceProtection" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="TechSupport">Tech Support</label>
+      <select name="TechSupport" id="TechSupport" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="StreamingTV">Streaming TV</label>
+      <select name="StreamingTV" id="StreamingTV" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="StreamingMovies">Streaming Movies</label>
+      <select name="StreamingMovies" id="StreamingMovies" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet service">No internet service</option>
+      </select>
+    </div>
+    <div>
+      <label for="Contract">Contract</label>
+      <select name="Contract" id="Contract" required>
+        <option value="Month-to-month">Month-to-month</option>
+        <option value="One year">One year</option>
+        <option value="Two year">Two year</option>
+      </select>
+    </div>
+    <div>
+      <label for="PaperlessBilling">Paperless Billing</label>
+      <select name="PaperlessBilling" id="PaperlessBilling" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label for="PaymentMethod">Payment Method</label>
+      <select name="PaymentMethod" id="PaymentMethod" required>
+        <option value="Electronic check">Electronic check</option>
+        <option value="Mailed check">Mailed check</option>
+        <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+        <option value="Credit card (automatic)">Credit card (automatic)</option>
+      </select>
+    </div>
+    <div>
+      <label for="MonthlyCharges">Monthly Charges</label>
+      <input type="number" step="any" name="MonthlyCharges" id="MonthlyCharges" required />
+    </div>
+    <div>
+      <label for="TotalCharges">Total Charges</label>
+      <input type="number" step="any" name="TotalCharges" id="TotalCharges" required />
+    </div>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction_text %}
+  <div class="result">
+    Prediction: {{ prediction_text }}
+  </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
+What you do in Flask app:
+Receive these original
+
+
+
+
+
+
+
+
+
+
